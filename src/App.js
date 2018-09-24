@@ -31,6 +31,7 @@ class App extends Component {
       near: "Sydney",
       v: "20180323"
     };
+
     axios
       .get(endPoint + new URLSearchParams(parameters))
       .then(response => {
@@ -56,11 +57,18 @@ class App extends Component {
       }
     );
 
+    const infowindow = new window.google.maps.InfoWindow({});
+
     this.state.venues.map(myVenue => {
-      // let myLatLng = {
-      //   lat: myVenue.venue.location.lat,
-      //   lng: myVenue.venue.location.lng
-      // };
+      let contentString = `<div id="content">
+      <div id="siteNotice">
+      </div>
+      <h2 id="firstHeading" class="firstHeading">${
+        myVenue.venue.name
+      }</h2>
+      <p>${myVenue.venue.location.address}
+      ${myVenue.venue.location.city}</p>
+      `;
 
       const marker = new window.google.maps.Marker({
         position: {
@@ -70,6 +78,12 @@ class App extends Component {
         map: map,
         title: myVenue.venue.name
       });
+
+      marker.addListener("click", function() {
+        infowindow.setContent(contentString);
+        infowindow.open(map, marker);
+      });
+
       return marker;
     });
   };
