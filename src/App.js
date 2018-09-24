@@ -10,7 +10,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getVenues();
-    this.renderMap();
+    // this.renderMap();
   }
 
   renderMap = () => {
@@ -28,16 +28,19 @@ class App extends Component {
       client_secret:
         "CID3CSGSYT3D2CB1RBRNSOFLQK5LUMRX4JOKRTYV3K2AVUDX",
       query: "food",
-      near: "Seattle",
+      near: "Sydney",
       v: "20180323"
     };
     axios
       .get(endPoint + new URLSearchParams(parameters))
       .then(response => {
         // console.log(response.data.response.groups[0].items);
-        this.setState({
-          venues: response.data.response.groups[0].items
-        });
+        this.setState(
+          {
+            venues: response.data.response.groups[0].items
+          },
+          this.renderMap()
+        );
       })
       .catch(error => {
         console.log(error);
@@ -52,6 +55,23 @@ class App extends Component {
         zoom: 8
       }
     );
+
+    this.state.venues.map(myVenue => {
+      // let myLatLng = {
+      //   lat: myVenue.venue.location.lat,
+      //   lng: myVenue.venue.location.lng
+      // };
+
+      const marker = new window.google.maps.Marker({
+        position: {
+          lat: myVenue.venue.location.lat,
+          lng: myVenue.venue.location.lng
+        },
+        map: map,
+        title: myVenue.venue.name
+      });
+      return marker;
+    });
   };
 
   render() {
