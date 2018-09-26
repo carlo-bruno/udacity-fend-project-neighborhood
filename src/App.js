@@ -28,7 +28,7 @@ class App extends Component {
       client_secret:
         "CID3CSGSYT3D2CB1RBRNSOFLQK5LUMRX4JOKRTYV3K2AVUDX",
       query: "food",
-      near: "Sydney",
+      near: "Seattle",
       v: "20180323"
     };
 
@@ -52,8 +52,8 @@ class App extends Component {
     const map = new window.google.maps.Map(
       document.getElementById("map"),
       {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
+        center: { lat: 47.608013, lng: -122.335167 },
+        zoom: 12.2
       }
     );
 
