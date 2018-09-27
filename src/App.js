@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 
+import VenueList from "./Components/VenueList";
+
 import axios from "axios";
 
 class App extends Component {
@@ -20,6 +22,8 @@ class App extends Component {
     window.initMap = this.initMap;
   };
 
+  // get venues data from FourSquare API using axios
+  // then set state
   getVenues = () => {
     const endPoint =
       "https://api.foursquare.com/v2/venues/explore?";
@@ -52,25 +56,24 @@ class App extends Component {
     const map = new window.google.maps.Map(
       document.getElementById("map"),
       {
+        // Seattle coordinates
         center: { lat: 47.608013, lng: -122.335167 },
-        zoom: 12.2
+        zoom: 12
       }
     );
 
-    const infowindow = new window.google.maps.InfoWindow({});
+    const infowindow = new window.google.maps.InfoWindow();
 
     this.state.venues.map(myVenue => {
-      let contentString = `<div id="content">
-      <div id="siteNotice">
-      </div>
+      let contentString = `
       <h2 id="firstHeading" class="firstHeading">${
         myVenue.venue.name
       }</h2>
       <p>${myVenue.venue.location.address}
       ${myVenue.venue.location.city}</p>
       `;
-
-      const marker = new window.google.maps.Marker({
+      // directly bind venue marker to venue for easier access by onClick function
+      myVenue.marker = new window.google.maps.Marker({
         position: {
           lat: myVenue.venue.location.lat,
           lng: myVenue.venue.location.lng
@@ -79,18 +82,18 @@ class App extends Component {
         title: myVenue.venue.name
       });
 
-      marker.addListener("click", function() {
+      myVenue.marker.addListener("click", function() {
         infowindow.setContent(contentString);
-        infowindow.open(map, marker);
+        infowindow.open(map, myVenue.marker);
       });
-
-      return marker;
+      return myVenue.marker;
     });
   };
 
   render() {
     return (
       <main>
+        <VenueList venues={this.state.venues} />
         <div id="map" />
       </main>
     );

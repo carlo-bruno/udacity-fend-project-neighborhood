@@ -31,11 +31,17 @@
   }
 }
 
+/* ---------------------- */
+main {
+  display: flex;
+}
+
 /* ---------------------------------------------------------------- */
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 #map {
   height: 100vh;
+  width: 80%;
 }
 /* Optional: Makes the sample page fill the window. */
 html,
@@ -43,4 +49,20 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+#venue-list {
+  width: 20%;
+  color: #fff;
+  background-color: #222;
+}
+
+#venue-list ul {
+  padding: 0;
+}
+
+#venue-list li {
+  list-style: none;
+  border-bottom: solid 1px #ccc;
+  padding: 10px;
 }
