@@ -52,6 +52,25 @@ class App extends Component {
       });
   };
 
+  // TODO: figure out how to add more info to venues
+  // getMoreInfo = place => {
+  //   const endPoint = "https://api.foursquare.com/v2/venues/";
+  //   const parameters = {
+  //     client_id: "TUUYKFTMLO3FEBMIRNCR4SXC0HHHCIRWQKEQOLRORBLC1UUC",
+  //     client_secret:
+  //       "CID3CSGSYT3D2CB1RBRNSOFLQK5LUMRX4JOKRTYV3K2AVUDX",
+  //     v: "20180323"
+  //   };
+  //   axios
+  //     .get(
+  //       endPoint +
+  //         place.venue.id +
+  //         "?" +
+  //         new URLSearchParams(parameters)
+  //     )
+  //     .then(response => console.log(response.data.response));
+  // };
+
   initMap = () => {
     const map = new window.google.maps.Map(
       document.getElementById("map"),
@@ -76,11 +95,14 @@ class App extends Component {
         title: myVenue.venue.name
       });
 
+      // this.getMoreInfo(myVenue);
+
       // infowindow content
       let contentString = `
-      <h2 id="firstHeading" class="firstHeading">${
-        myVenue.venue.name
-      }</h2>
+      <h2>${myVenue.venue.name}</h2>
+      <img src=${myVenue.venue.categories[0].icon.prefix +
+        "32.png"} >
+      <h3>${myVenue.venue.categories[0].name}</h3>
       <p>${myVenue.venue.location.address} <br>
       ${myVenue.venue.location.city} </p>
       <a href="https://foursquare.com/v/${
