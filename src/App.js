@@ -69,8 +69,11 @@ class App extends Component {
       <h2 id="firstHeading" class="firstHeading">${
         myVenue.venue.name
       }</h2>
-      <p>${myVenue.venue.location.address}
-      ${myVenue.venue.location.city}</p>
+      <p>${myVenue.venue.location.address} <br>
+      ${myVenue.venue.location.city} </p>
+      <a href="https://foursquare.com/v/${
+        myVenue.venue.id
+      }" target="_blank">Read More</a>
       `;
       // directly bind venue marker to venue for easier access by onClick function
       myVenue.marker = new window.google.maps.Marker({
