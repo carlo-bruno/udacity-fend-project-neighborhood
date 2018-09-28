@@ -65,16 +65,7 @@ class App extends Component {
     const infowindow = new window.google.maps.InfoWindow();
 
     this.state.venues.map(myVenue => {
-      let contentString = `
-      <h2 id="firstHeading" class="firstHeading">${
-        myVenue.venue.name
-      }</h2>
-      <p>${myVenue.venue.location.address} <br>
-      ${myVenue.venue.location.city} </p>
-      <a href="https://foursquare.com/v/${
-        myVenue.venue.id
-      }" target="_blank">Read More</a>
-      `;
+      // Create Markers
       // directly bind venue marker to venue for easier access by onClick function
       myVenue.marker = new window.google.maps.Marker({
         position: {
@@ -85,7 +76,26 @@ class App extends Component {
         title: myVenue.venue.name
       });
 
+      // infowindow content
+      let contentString = `
+      <h2 id="firstHeading" class="firstHeading">${
+        myVenue.venue.name
+      }</h2>
+      <p>${myVenue.venue.location.address} <br>
+      ${myVenue.venue.location.city} </p>
+      <a href="https://foursquare.com/v/${
+        myVenue.venue.id
+      }" target="_blank">Read More</a>
+      `;
+
+      // Add event listeners to markers
       myVenue.marker.addListener("click", function() {
+        // Animate Marker when opened, remove after 3 bounce
+        myVenue.marker.setAnimation(
+          window.google.maps.Animation.BOUNCE
+        );
+        setTimeout(() => myVenue.marker.setAnimation(null), 2100);
+
         infowindow.setContent(contentString);
         infowindow.open(map, myVenue.marker);
       });
