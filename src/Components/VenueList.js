@@ -7,6 +7,7 @@ const VenueList = props => {
 
   return (
     <div id="venue-list">
+      <h1>Seattle Spots</h1>
       <input
         className="search-input"
         type="text"

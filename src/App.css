@@ -1,49 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* --------------------------------------------------------------- */
-main {
-  display: flex;
-}
-
-/* Map Style ----------------------------------------------------- */
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-#map {
-  height: 100vh;
-  width: 80%;
-}
-/* Optional: Makes the sample page fill the window. */
 html,
 body {
   height: 100%;
@@ -51,16 +6,76 @@ body {
   padding: 0;
 }
 
+main {
+  display: flex;
+}
+
+/* Map Style ----------------------------------------------------- */
+#map {
+  height: 100vh;
+  width: 80%;
+}
+
+/* InfoWindow Style ---------------------------------------------- */
+
+.infowindow {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  width: 250px;
+}
+.infowindow h2 {
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.infowindow h3 {
+  font-size: 1rem;
+  padding: 0;
+  margin: 5px;
+  width: 100%;
+}
+
+.infowindow img {
+  background-color: #ccc;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+.infowindow .location {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin: 5px;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.infowindow a {
+  width: 100%;
+  text-align: center;
+}
+
 /* Side Bar Style ------------------------------------------------ */
 #venue-list {
   width: 20%;
   color: #fff;
   background-color: #222;
+  height: 100vh;
+}
+
+.search-input {
+  font-size: 1em;
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
 }
 
 #venue-list ul {
   padding: 0;
-  height: 80vh;
+  height: 60%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -69,10 +84,4 @@ body {
   list-style: none;
   border-bottom: solid 1px #ccc;
   padding: 10px;
-}
-
-.search-input {
-  font-size: 1em;
-  width: 100%;
-  height: 30px;
 }
