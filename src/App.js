@@ -100,17 +100,20 @@ class App extends Component {
 
       // this.getMoreInfo(myVenue);
 
-      // infowindow content
+      // * Infowindow Content
+
       let contentString = `
+      <div class="infowindow">
       <h2>${myVenue.venue.name}</h2>
-      <img src=${myVenue.venue.categories[0].icon.prefix +
-        "32.png"} >
       <h3>${myVenue.venue.categories[0].name}</h3>
-      <p>${myVenue.venue.location.address} <br>
-      ${myVenue.venue.location.city} </p>
+      <img src=${myVenue.venue.categories[0].icon.prefix +
+        "32.png"} alt="category image">
+      <p class="location">${myVenue.venue.location.address} <br>
+      ${myVenue.venue.location.crossStreet} </p>
       <a href="https://foursquare.com/v/${
         myVenue.venue.id
       }" target="_blank">Read More</a>
+      </div>
       `;
 
       // Add event listeners to markers
