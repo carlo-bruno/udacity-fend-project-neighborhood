@@ -7,16 +7,30 @@ const VenueList = props => {
 
   return (
     <div id="venue-list">
-      <input />
-      <ul className="venue-ul">
-        {props.venues.map((venue, index) => {
-          return (
-            <li key={index} onClick={() => showInfo(venue)}>
-              <a>{venue.venue.name}</a>
-            </li>
-          );
-        })}
-      </ul>
+      <input
+        className="search-input"
+        type="text"
+        placeholder="Filter by Name"
+        onChange={event =>
+          props.filterVenue(event.target.value.toLocaleLowerCase())
+        }
+      />
+      {props.venues.length > 0 ? (
+        <ul>
+          {props.venues.map((venue, index) => {
+            // console.log(venue);
+            return (
+              <li key={index} onClick={() => showInfo(venue)}>
+                <a>{venue.venue.name}</a>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <ul> 0 venues found</ul>
+      )}
+
+      <p>powered by foursquare</p>
     </div>
   );
 };

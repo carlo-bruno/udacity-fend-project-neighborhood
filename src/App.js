@@ -7,7 +7,8 @@ import axios from "axios";
 
 class App extends Component {
   state = {
-    venues: []
+    venues: [],
+    filteredVenues: []
   };
 
   componentDidMount() {
@@ -72,6 +73,8 @@ class App extends Component {
   // };
 
   initMap = () => {
+    this.setState({ filteredVenues: this.state.venues });
+
     const map = new window.google.maps.Map(
       document.getElementById("map"),
       {
@@ -125,10 +128,35 @@ class App extends Component {
     });
   };
 
+  // venue search by name
+  filterVenue = query => {
+    console.log(query);
+    if (query) {
+      this.state.venues.forEach(venue => {
+        if (venue.venue.name.toLowerCase().indexOf(query) >= 0)
+          return venue.marker.setVisible(true);
+        else venue.marker.setVisible(false);
+      });
+    } else {
+      this.state.venues.forEach(venue =>
+        venue.marker.setVisible(true)
+      );
+    }
+
+    const filterList = this.state.venues
+      .filter(myVenue => myVenue.marker.getVisible())
+      .map(m => m);
+
+    this.setState({ filteredVenues: filterList });
+  };
+
   render() {
     return (
       <main>
-        <VenueList venues={this.state.venues} />
+        <VenueList
+          venues={this.state.filteredVenues}
+          filterVenue={this.filterVenue}
+        />
         <div id="map" />
       </main>
     );
