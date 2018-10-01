@@ -1,12 +1,14 @@
 import React from "react";
 
+import fslogo from "../images/powered-by-foursquare-white.png";
+
 const VenueList = props => {
   const showInfo = place => {
     window.google.maps.event.trigger(place.marker, "click");
   };
 
   return (
-    <div id="venue-list">
+    <section id="venue-list">
       <h1>Seattle Spots</h1>
       <input
         className="search-input"
@@ -28,11 +30,13 @@ const VenueList = props => {
           })}
         </ul>
       ) : (
-        <ul> 0 venues found</ul>
+        <ul>
+          <li> 0 venues found</li>
+        </ul>
       )}
 
-      <p>powered by foursquare</p>
-    </div>
+      <img src={fslogo} alt="fs logo" />
+    </section>
   );
 };
 
