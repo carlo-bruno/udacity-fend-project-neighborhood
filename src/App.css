@@ -61,27 +61,49 @@ main {
 /* Side Bar Style ------------------------------------------------ */
 #venue-list {
   width: 20%;
+  min-width: 300px;
   color: #fff;
   background-color: #222;
   height: 100vh;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+#venue-list h1 {
+  margin: 20px auto;
 }
 
 .search-input {
   font-size: 1em;
-  width: 100%;
+  width: 80%;
   height: 30px;
   padding: 0 10px;
+  margin: 0 auto;
 }
 
 #venue-list ul {
-  padding: 0;
-  height: 60%;
+  background-color: #303030;
+  padding: 0 10px;
+  height: 63%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 #venue-list li {
   list-style: none;
+  /* border-top: solid 1px #ccc; */
   border-bottom: solid 1px #ccc;
-  padding: 10px;
+  padding: 20px;
+  /* margin: 10px; */
+}
+
+#venue-list li:hover {
+  cursor: pointer;
+}
+
+#venue-list img {
+  width: 90%;
+  padding: 0 10px;
+  margin: auto 0 20px;
 }
