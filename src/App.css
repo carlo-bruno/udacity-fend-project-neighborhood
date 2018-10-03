@@ -15,6 +15,7 @@ main {
   position: fixed;
   right: 10px;
   top: 10px;
+  z-index: 6;
 }
 
 #toggle-menu i {
@@ -129,4 +130,30 @@ main {
   width: 90%;
   padding: 0 10px;
   margin: auto 0 20px;
+}
+
+/* Media Query --------------------------------------------------- */
+@media (max-width: 425px) {
+  main {
+    display: block;
+    position: relative;
+  }
+
+  #toggle-menu {
+    /* display: none; */
+  }
+
+  #map {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+  }
+
+  #venue-list {
+    z-index: 5;
+    position: absolute;
+    /* transform: translate(-300px, 0); */
+    transform: translate(0, 0);
+  }
 }
