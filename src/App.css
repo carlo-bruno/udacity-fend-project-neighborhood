@@ -10,6 +10,28 @@ main {
   display: flex;
 }
 
+/* Toggle Menu Button Style -------------------------------------- */
+#toggle-menu {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+#toggle-menu i {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #444;
+  background-image: url("./icons/round_menu_white_18dp.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+  font-size: 0;
+}
+
 /* Map Style ----------------------------------------------------- */
 #map {
   height: 100vh;
@@ -61,7 +83,7 @@ main {
 /* Side Bar Style ------------------------------------------------ */
 #venue-list {
   width: 20%;
-  min-width: 300px;
+  min-width: 280px;
   color: #fff;
   background-color: #222;
   height: 100vh;
@@ -100,6 +122,7 @@ main {
 
 #venue-list li:hover {
   cursor: pointer;
+  background-color: #444;
 }
 
 #venue-list img {

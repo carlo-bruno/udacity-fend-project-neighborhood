@@ -35,7 +35,7 @@ const VenueList = props => {
         </ul>
       )}
 
-      <img src={fslogo} alt="fs logo" />
+      <img src={fslogo} alt="foursquare attribution" />
     </section>
   );
 };

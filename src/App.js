@@ -53,25 +53,6 @@ class App extends Component {
       });
   };
 
-  // TODO: figure out how to add more info to venues
-  // getMoreInfo = place => {
-  //   const endPoint = "https://api.foursquare.com/v2/venues/";
-  //   const parameters = {
-  //     client_id: "TUUYKFTMLO3FEBMIRNCR4SXC0HHHCIRWQKEQOLRORBLC1UUC",
-  //     client_secret:
-  //       "CID3CSGSYT3D2CB1RBRNSOFLQK5LUMRX4JOKRTYV3K2AVUDX",
-  //     v: "20180323"
-  //   };
-  //   axios
-  //     .get(
-  //       endPoint +
-  //         place.venue.id +
-  //         "?" +
-  //         new URLSearchParams(parameters)
-  //     )
-  //     .then(response => console.log(response.data.response));
-  // };
-
   initMap = () => {
     this.setState({ filteredVenues: this.state.venues });
 
@@ -97,8 +78,6 @@ class App extends Component {
         map: map,
         title: myVenue.venue.name
       });
-
-      // this.getMoreInfo(myVenue);
 
       // * Infowindow Content
 
@@ -161,15 +140,13 @@ class App extends Component {
           filterVenue={this.filterVenue}
         />
         <div id="map" />
+        <nav id="toggle-menu">
+          <i> Toggle Menu</i>
+        </nav>
       </main>
     );
   }
 }
-
-/* <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-  async defer></script> */
-
-// AIzaSyCKp1_4GchKu7yMf2H6CmMo04Fs2SWocYA
 
 function loadScript(url) {
   const index = window.document.getElementsByTagName("script")[0];
