@@ -8,7 +8,8 @@ import axios from "axios";
 class App extends Component {
   state = {
     venues: [],
-    filteredVenues: []
+    filteredVenues: [],
+    openList: true
   };
 
   componentDidMount() {
@@ -132,16 +133,26 @@ class App extends Component {
     this.setState({ filteredVenues: filterList });
   };
 
+  toggleList = () => {
+    this.setState({
+      openList: !this.state.openList
+    });
+  };
+
   render() {
     return (
       <main>
         <VenueList
+          openList={this.state.openList}
           venues={this.state.filteredVenues}
           filterVenue={this.filterVenue}
         />
         <div id="map" />
-        <nav id="toggle-menu">
-          <i> Toggle Menu</i>
+        <nav
+          id="toggle-menu"
+          className={this.state.openList ? "open" : "closed"}
+        >
+          <i onClick={() => this.toggleList()}> Toggle Menu</i>
         </nav>
       </main>
     );

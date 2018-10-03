@@ -15,7 +15,10 @@ main {
   position: fixed;
   right: 10px;
   top: 10px;
-  z-index: 6;
+  z-index: 101;
+
+  transform: translate(200px, 0);
+  transition: transform 0.2s ease-in;
 }
 
 #toggle-menu i {
@@ -31,6 +34,10 @@ main {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
     0 3px 6px rgba(0, 0, 0, 0.23);
   font-size: 0;
+}
+
+#toggle-menu.open i {
+  background-image: url("./icons/round_close_white_18dp.png");
 }
 
 /* Map Style ----------------------------------------------------- */
@@ -92,6 +99,8 @@ main {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+
+  transition: transform 0.2s ease-in;
 }
 #venue-list h1 {
   margin: 20px auto;
@@ -140,7 +149,7 @@ main {
   }
 
   #toggle-menu {
-    /* display: none; */
+    transform: translate(0, 0);
   }
 
   #map {
@@ -151,9 +160,15 @@ main {
   }
 
   #venue-list {
-    z-index: 5;
+    z-index: 100;
     position: absolute;
-    /* transform: translate(-300px, 0); */
+  }
+
+  #venue-list.open {
     transform: translate(0, 0);
+  }
+
+  #venue-list.closed {
+    transform: translate(-300px, 0);
   }
 }

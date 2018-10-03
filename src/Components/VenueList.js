@@ -8,7 +8,10 @@ const VenueList = props => {
   };
 
   return (
-    <section id="venue-list">
+    <section
+      id="venue-list"
+      className={props.openList ? "open" : "closed"}
+    >
       <h1>Seattle Spots</h1>
       <input
         className="search-input"
