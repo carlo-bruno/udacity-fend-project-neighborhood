@@ -18,7 +18,7 @@ main {
   z-index: 101;
 
   transform: translate(200px, 0);
-  transition: transform 0.2s ease-in;
+  transition: transform 0.3s ease-in-out;
 }
 
 #toggle-menu i {
@@ -100,7 +100,7 @@ main {
   flex-wrap: nowrap;
   flex-direction: column;
 
-  transition: transform 0.2s ease-in;
+  transition: transform 0.3s ease-in-out;
 }
 #venue-list h1 {
   margin: 20px auto;

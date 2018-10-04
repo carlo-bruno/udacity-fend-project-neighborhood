@@ -141,13 +141,13 @@ class App extends Component {
 
   render() {
     return (
-      <main>
+      <main role="main">
         <VenueList
           openList={this.state.openList}
           venues={this.state.filteredVenues}
           filterVenue={this.filterVenue}
         />
-        <div id="map" />
+        <div id="map" role="application" />
         <nav
           id="toggle-menu"
           className={this.state.openList ? "open" : "closed"}

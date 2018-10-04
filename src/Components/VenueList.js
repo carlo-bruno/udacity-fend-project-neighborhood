@@ -14,6 +14,8 @@ const VenueList = props => {
     >
       <h1>Seattle Spots</h1>
       <input
+        aria-label="search input"
+        role="search"
         className="search-input"
         type="text"
         placeholder="Filter by Name"
@@ -26,7 +28,11 @@ const VenueList = props => {
           {props.venues.map((venue, index) => {
             // console.log(venue);
             return (
-              <li key={index} onClick={() => showInfo(venue)}>
+              <li
+                key={index}
+                tabIndex="0"
+                onClick={() => showInfo(venue)}
+              >
                 <a>{venue.venue.name}</a>
               </li>
             );
