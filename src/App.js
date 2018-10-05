@@ -5,6 +5,8 @@ import VenueList from "./Components/VenueList";
 
 import axios from "axios";
 
+import fslogo from "./icons/foursquare-logo-2.png";
+
 class App extends Component {
   state = {
     venues: [],
@@ -62,7 +64,7 @@ class App extends Component {
       {
         // Seattle coordinates
         center: { lat: 47.608013, lng: -122.335167 },
-        zoom: 12
+        zoom: 12.5
       }
     );
 
@@ -86,13 +88,13 @@ class App extends Component {
       <div class="infowindow">
       <h2>${myVenue.venue.name}</h2>
       <h3>${myVenue.venue.categories[0].name}</h3>
-      <img src=${myVenue.venue.categories[0].icon.prefix +
-        "32.png"} alt="category image">
+      <img class="category-img" src=${myVenue.venue.categories[0]
+        .icon.prefix + "32.png"} alt="category image">
       <p class="location">${myVenue.venue.location.address} <br>
-      ${myVenue.venue.location.crossStreet} </p>
+      ${myVenue.venue.location.crossStreet || ""} </p>
       <a href="https://foursquare.com/v/${
         myVenue.venue.id
-      }" target="_blank">Read More</a>
+      }" target="_blank">Read more on<img class="link-logo" src=${fslogo} alt="foursquare logo"></a>
       </div>
       `;
 

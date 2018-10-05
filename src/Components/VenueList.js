@@ -1,6 +1,6 @@
 import React from "react";
 
-import fslogo from "../images/powered-by-foursquare-white.png";
+import fspowered from "../images/powered-by-foursquare-white.png";
 
 const VenueList = props => {
   const showInfo = place => {
@@ -12,7 +12,7 @@ const VenueList = props => {
       id="venue-list"
       className={props.openList ? "open" : "closed"}
     >
-      <h1>Seattle Spots</h1>
+      <h1>Seattle Food Spots</h1>
       <input
         aria-label="search input"
         role="search"
@@ -43,8 +43,9 @@ const VenueList = props => {
           <li> 0 venues found</li>
         </ul>
       )}
-
-      <img src={fslogo} alt="foursquare attribution" />
+      <a href="https://foursquare.com/">
+        <img src={fspowered} alt="foursquare attribution" />
+      </a>
     </section>
   );
 };
