@@ -17,7 +17,7 @@ This is a single page map application that shows food venues around Seattle area
 
 The page consist of a Google Map and Location markers. The sidebar contains the list of all the venues. Clicking either the markers or list items will open an InfoWindow that shows more details about the venue.
 
-<img src="src/img/ss-neighborhood-info.png" width="500">
+<img src="src/images/ss-neighborhood-info.png" width="500">
 
 ### Project Specification
 
@@ -33,8 +33,8 @@ The InfoWindow displays more details about the venue, namely, the restaurant cat
 
 In mobile viewports, a toggle button for the menu appears in the upper-right corner of the screen. Pressing it will slide the sidebar on and off the screen.
 
-<img src="src/img/ss-neighborhood-mobile-1.png" width="200">
-<img src="src/img/ss-neighborhood-mobile-2.png" width="200">
+<img src="src/images/ss-neighborhood-mobile-1.png" width="200">
+<img src="src/images/ss-neighborhood-mobile-2.png" width="200">
 
 ### For Developers
 
